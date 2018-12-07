@@ -1,7 +1,7 @@
 {
   "name": "react-luxbar",
   "version": "1.0.0",
-  "description": "",
+  "description": "Luxbar implementation for React.js",
   "author": "bernagl",
   "license": "MIT",
   "repository": "bernagl/react-luxbar",

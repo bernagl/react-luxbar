@@ -1,8 +1,348 @@
-/* add css styles here (optional) */
-
-.test {
-  display: inline-block;
-  margin: 2em auto;
-  border: 2px solid #000;
-  font-size: 2em;
+body {
+  font-family: Arial, Helvetica, sans-serif
 }
+
+.luxbar-default {
+  width: 100%;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)
+}
+
+a {
+  text-decoration: none;
+}
+
+.luxbar-item a:hover {
+  color: white !important;
+}
+
+.luxbar-static {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0
+}
+
+.luxbar-static .luxbar-checkbox:checked~.luxbar-menu {
+  position: absolute
+}
+
+.luxbar-fixed {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)
+}
+
+.luxbar-fixedBottom {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)
+}
+
+.luxbar-hamburger span,
+.luxbar-hamburger span::before,
+.luxbar-hamburger span::after {
+  display: block;
+  height: 2px;
+  width: 26px;
+  transition: 0.6s ease
+}
+
+.luxbar-checkbox:checked~.luxbar-menu li .luxbar-hamburger span {
+  background-color: transparent
+}
+
+.luxbar-checkbox:checked~.luxbar-menu li .luxbar-hamburger span::before,
+.luxbar-checkbox:checked~.luxbar-menu li .luxbar-hamburger span::after {
+  margin-top: 0
+}
+
+.luxbar-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 57px
+}
+
+.luxbar-menu-left .luxbar-navigation,
+.luxbar-menu-left .luxbar-header {
+  justify-content: flex-start
+}
+
+.luxbar-menu-right .luxbar-hamburger {
+  margin-left: auto
+}
+
+.luxbar-brand {
+  font-size: 1.6em;
+  padding: 18px 24px 18px 24px
+}
+
+.luxbar-menu {
+  min-height: 57px;
+  transition: 0.6s ease;
+  width: 100%
+}
+
+.luxbar-navigation {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding-left: 0;
+  margin: 0
+}
+
+.luxbar-menu a,
+.luxbar-item a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer
+}
+
+.luxbar-item {
+  height: 57px;
+  transition: 1s;
+  cursor: pointer;
+}
+
+.luxbar-item a {
+  padding: 18px 24px 18px 24px;
+  display: block
+}
+
+.luxbar-hamburger {
+  padding: 18px 24px 18px 24px;
+  position: relative;
+  cursor: pointer
+}
+
+.luxbar-hamburger span::before,
+.luxbar-hamburger span::after {
+  content: '';
+  position: absolute
+}
+
+.luxbar-hamburger span::before {
+  margin-top: -8px
+}
+
+.luxbar-hamburger span::after {
+  margin-top: 8px
+}
+
+.luxbar-checkbox {
+  display: none
+}
+
+.luxbar-checkbox:not(:checked)~.luxbar-menu {
+  overflow: hidden;
+  height: 57px;
+}
+
+.luxbar-checkbox:checked~.luxbar-menu {
+  transition: height 0.6s ease;
+  height: 100vh;
+  overflow: auto
+}
+
+.dropdown {
+  position: relative;
+  height: auto;
+  min-height: 57px;
+}
+
+.dropdown:hover>ul {
+  position: relative;
+  display: block;
+  min-width: 100%
+}
+
+.dropdown>a::after {
+  position: absolute;
+  content: '';
+  right: 10px;
+  top: 25px;
+  border-width: 5px 5px 0;
+  border-color: transparent;
+  border-style: solid
+}
+
+.dropdown>ul {
+  display: block;
+  overflow-x: hidden;
+  list-style: none;
+  padding: 0
+}
+
+.dropdown>ul .luxbar-item {
+  min-width: 100%;
+  height: 29px;
+  padding: 5px 10px 5px 40px
+}
+
+.dropdown>ul .luxbar-item a {
+  min-height: 29px;
+  line-height: 29px;
+  padding: 0
+}
+
+@media screen and (min-width: 768px) {
+  .luxbar-navigation.rtl {
+    flex-flow: row;
+    justify-content: flex-end
+  }
+
+  .luxbar-navigation.ltr {
+    flex-flow: row;
+    justify-content: flex-start
+  }
+
+  .luxbar-hamburger {
+    display: none
+  }
+
+  .luxbar-checkbox:not(:checked)~.luxbar-menu {
+    overflow: visible
+  }
+
+  .luxbar-checkbox:checked~.luxbar-menu {
+    height: 57px;
+  }
+
+  .luxbar-header.rtl {
+    margin-right: auto;
+  }
+
+  .luxbar-menu .luxbar-item {
+    border-top: 0
+  }
+
+  .luxbar-menu-right.rtl .luxbar-header {
+    margin-right: auto
+  }
+
+  .dropdown {
+    height: 57px;
+  }
+
+  .dropdown:hover>ul {
+    position: absolute;
+    left: 0;
+    top: 57px;
+    ;
+    padding: 0
+  }
+
+  .dropdown>ul {
+    display: none
+  }
+
+  .dropdown>ul .luxbar-item {
+    padding: 5px 10px
+  }
+
+  .dropdown>ul .luxbar-item a {
+    white-space: nowrap
+  }
+}
+
+.luxbar-checkbox:checked+.luxbar-menu .luxbar-hamburger-doublespin span::before {
+  transform: rotate(225deg)
+}
+
+.luxbar-checkbox:checked+.luxbar-menu .luxbar-hamburger-doublespin span::after {
+  transform: rotate(-225deg)
+}
+
+.luxbar-checkbox:checked+.luxbar-menu .luxbar-hamburger-spin span::before {
+  transform: rotate(45deg)
+}
+
+.luxbar-checkbox:checked+.luxbar-menu .luxbar-hamburger-spin span::after {
+  transform: rotate(-45deg)
+}
+
+.luxbar-menu-dark,
+.luxbar-menu-dark .dropdown ul {
+  background-color: #212121;
+  color: #fff
+}
+
+.luxbar-menu-dark .active,
+.luxbar-menu-dark .luxbar-item:hover {
+  background-color: #424242
+}
+
+.luxbar-menu-dark .luxbar-hamburger span,
+.luxbar-menu-dark .luxbar-hamburger span::before,
+.luxbar-menu-dark .luxbar-hamburger span::after {
+  background-color: #fff
+}
+
+.luxbar-menu-light,
+.luxbar-menu-light .dropdown ul {
+  background-color: #e0e0e0;
+  color: #212121
+}
+
+.luxbar-menu-light .active,
+.luxbar-menu-light .luxbar-item:hover {
+  background-color: #bdbdbd
+}
+
+.luxbar-menu-light .luxbar-hamburger span,
+.luxbar-menu-light .luxbar-hamburger span::before,
+.luxbar-menu-light .luxbar-hamburger span::after {
+  background-color: #212121
+}
+
+
+.luxbar-menu-material-cyan,
+.luxbar-menu-material-cyan .dropdown ul {
+  background-color: #00dbe7;
+  color: #fff
+}
+
+.luxbar-menu-material-cyan .active,
+.luxbar-menu-material-cyan .luxbar-item:hover {
+  background-color: #32b7be;
+}
+
+.luxbar-menu-material-cyan .luxbar-hamburger span,
+.luxbar-menu-material-cyan .luxbar-hamburger span::before,
+.luxbar-menu-material-cyan .luxbar-hamburger span::after {
+  background-color: #fff
+}
+
+.luxbar-header img {
+  height: 57px;
+  padding: 5px 0px;
+}
+
+.luxbar-header.ltr {
+  margin-left: 0px;
+}
+
+.luxbar-item.ltr {
+  margin-right: 0;
+}
+
+.luxbar-item.hover:hover {
+  transition: 1s
+}
+
+/* @media(max-width: 576px) {
+  .luxbar-header.rtl {
+    margin-right: auto;
+  }
+} */
+
+/*# sourceMappingURL=luxbar.min.css.map */
